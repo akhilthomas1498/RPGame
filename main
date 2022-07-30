@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+class RPGame
+{
+    public static void main(String[] arg)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int mypow = sc.nextInt();
+        int count=0;
+        if(n > 0)
+        {
+            int mpow[] = new int[n];
+            int mbon[] = new int[n];
+            int i=0;
+            while(i < n)
+                mpow[i++] = sc.nextInt();
+            i=0;
+            while(i < n)
+                mbon[i++] = sc.nextInt();
+            i=n;
+            for(int j = 0; j < i; j++)
+            {
+                for(int k =0; k < n; k++)
+                {
+                    if(mypow >= mpow[k] && mpow[k] != -1)
+                    {
+                        count++;
+                        mpow[k]= -1;
+                        mypow += mbon[k];
+                        mbon[k]=-1;
+                    }
+                }
+            }
+        }
+        System.out.println(count);
+        sc.close();
+    }
+}
